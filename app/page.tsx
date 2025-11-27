@@ -6,24 +6,28 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Funil de Vendas Automatizado",
+    title: "Mileva Saas de Automatização",
     description:
-      "Landing page + automações de leads integradas ao CRM, aumentando o fluxo de oportunidades qualificados.",
+      "Landing page + automações de leads integradas, aumentando o fluxo de oportunidades qualificados.",
     href: "/portifolio/mileva",
+    video: "/videos/mileva.webm",
   },
   {
-    title: "Site de Autoridade para Serviços B2B",
+    title: "Cursos de Saude e Bem-Estar ao Idoso",
     description:
       "Site institucional focado em conversão, com agendamento automático de reuniões.",
     href: "/portifolio/ircursos",
+    video: "../videos/ircursos.mp4",
   },
   {
-    title: "E-commerce com Fluxos Inteligentes",
+    title: "Dermaclin landing page e vendas",
     description:
-      "Checkout otimizado e automações de recuperação de carrinho e pós-venda.",
+      "Landing page otimizada com funil de vendas automatizado, integrando anúncios e WhatsApp.",
     href: "/portifolio/dermaclin",
+    video: "/videos/clinic.webm",
   },
 ];
+
 
 const testimonials = [
   {
@@ -227,10 +231,16 @@ const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
                   onMouseLeave={handleMouseLeave}
                   >
                   <div className="project-image">
-                    <div className="image-placeholder">
-                      <span>IMAGEM DO PROJETO</span>
-                    </div>
+                    <video
+                      src={project.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="video-preview"
+                    />
                   </div>
+
                   <div className="project-content">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
@@ -706,8 +716,19 @@ const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
 
 
         .project-image {
-          padding: 1rem;
+          width: 100%;
+          height: 180px;
+          overflow: hidden;
+          border-radius: 1.4rem 1.4rem 0 0;
+          margin-bottom: 0.9rem;
         }
+
+        .video-preview {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
 
         .project-content {
           padding: 0 1.4rem 1.4rem 1.4rem;
